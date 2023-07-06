@@ -1,19 +1,19 @@
 import logging
 from unittest import TestCase
 
-from ChatGPT3 import ChatGPT3
+from JochemChat import JochemChat
 
 logging.basicConfig(level=logging.INFO)
 
 
-class TestChatGPT3(TestCase):
+class TestJochemChat(TestCase):
     """
     Author: stan.chen@plusgpt.app
     """
     def test_get_response(self):
         config = {"model": "text-davinci-003",
                   "context": ""}
-        convo = ChatGPT3(config=config)
+        convo = JochemChat(config=config)
         data = convo.get_response("What are 10 frontend frameworks?")
         logging.info(data)
         assert data is not None
@@ -21,7 +21,7 @@ class TestChatGPT3(TestCase):
     def test_chat(self):
         config = {"model": "text-davinci-003",
                   "context": ""}
-        convo = ChatGPT3(config=config)
+        convo = JochemChat(config=config)
         data = convo.chat("What are 10 frontend frameworks?")
         logging.info(data)
         data = convo.chat("which of the frameworks are best for beginners?")
